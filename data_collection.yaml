@@ -1,0 +1,31 @@
+import random
+
+class IoTDevice:
+    def __init__(self, device_id):
+        self.device_id = device_id
+    
+    def collect_data(self):
+        # Simulate collecting data (temperature, voltage, current, state of charge)
+        temperature = random.uniform(25.0, 40.0)
+        voltage = random.uniform(3.5, 4.2)
+        current = random.uniform(0.5, 2.0)
+        state_of_charge = random.uniform(0.3, 0.8)
+        
+        return {
+            "device_id": self.device_id,
+            "temperature": temperature,
+            "voltage": voltage,
+            "current": current,
+            "state_of_charge": state_of_charge
+        }
+
+# Simulate IoT devices
+iot_device_1 = IoTDevice(device_id="device1")
+iot_device_2 = IoTDevice(device_id="device2")
+
+# Example of data collection
+data1 = iot_device_1.collect_data()
+data2 = iot_device_2.collect_data()
+
+print("Data from IoT Device 1:", data1)
+print("Data from IoT Device 2:", data2)
