@@ -1,0 +1,21 @@
+import tensorflow as tf
+import numpy as np
+
+# Load AI model (previously trained)
+model = tf.keras.models.load_model('fast_charge_model.h5')
+
+def predict_optimal_parameters(data):
+    # Extract relevant features from IoT data
+    temp = data['temperature']
+    voltage = data['voltage']
+    current = data['current']
+    state_of_charge = data['state_of_charge']
+    
+    input_data = np.array([[temp, voltage, current, state_of_charge]])
+    prediction = model.predict(input_data)
+    return prediction[0]
+
+# Example usage with IoT data
+predicted_params = predict_optimal_parameters(data1)
+
+print("Predicted Optimal Parameters:", predicted_params)
